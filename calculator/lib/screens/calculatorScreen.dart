@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:calculator/classes/buttons.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:eval_ex/expression.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Calculatorscreen extends StatefulWidget {
   const Calculatorscreen({super.key});
@@ -39,9 +42,7 @@ class _CalculatorscreenState extends State<Calculatorscreen> {
               child: Text(
                 overflow: TextOverflow.ellipsis,
                 result,
-                style: TextStyle(
-                  fontSize: 40,
-                ),
+                style: GoogleFonts.sarala(fontSize: 30),
               ),
             ),
           ),
@@ -90,9 +91,7 @@ class _CalculatorscreenState extends State<Calculatorscreen> {
               }, "op"),
               // number 7
               CalculatorButton("7", () {
-                setState(() {
-                  result += "7";
-                });
+                addCharToString("7");
               }, "nu"),
               // number 8
               CalculatorButton("8", () {
@@ -103,9 +102,14 @@ class _CalculatorscreenState extends State<Calculatorscreen> {
                 addCharToString("9");
               }, "nu"),
               // operator 9
-              CalculatorButton("*", () {
-                addCharToString("*", type: "op");
-              }, "op"),
+              CalculatorButton(
+                "*",
+                () {
+                  addCharToString("*", type: "op");
+                },
+                "op",
+                myIcon: CupertinoIcons.multiply,
+              ),
               // number 4
               CalculatorButton("4", () {
                 addCharToString("4");
@@ -207,7 +211,7 @@ class _CalculatorscreenState extends State<Calculatorscreen> {
     }
     try {
       Expression exp = Expression(result);
-      String s = exp.eval()!.toStringAsFixed(2);
+      String s = exp.eval()!.toStringAsFixed(4);
       result = s;
       if (result.contains(".")) {
         while (result[result.length - 1] == '0') {

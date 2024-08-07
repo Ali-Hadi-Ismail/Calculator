@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   expressions: ^0.2.5+1
   eval_ex: ^1.1.8
+  google_fonts: ^6.2.1
+  eva_icons_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:

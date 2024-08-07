@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CalculatorButton extends StatelessWidget {
-  final String value;
+  final value;
   final void Function() onPressed;
   //type : op se nu eq
   final String type;
@@ -65,7 +66,7 @@ class CalculatorButton extends StatelessWidget {
     if (myIcon == null) {
       return Text(
         value,
-        style: TextStyle(fontSize: 20), // Text size
+        style: GoogleFonts.sarala(fontSize: 22),
       );
     } else {
       return Icon(myIcon);
